@@ -37,16 +37,17 @@ CREATE TABLE `birimler` (
 --
 
 INSERT INTO `birimler` (`id`, `birim_adi`) VALUES
-(1, 'Ağız ve Diş SAĞLIĞI'),
-(2, 'Hekimlik'),
-(3, 'Birim a'),
-(4, 'Birim b'),
-(5, 'Birim c'),
-(6, 'Birim d'),
-(7, 'Birim e'),
-(8, 'Birim f'),
-(9, 'Birim g'),
-(10, 'Birim h');
+(1, 'Genel Muayene'),
+(2, 'Diş Temizliği'),
+(3, 'Ortodonti'),
+(4, 'Estetik Diş Hekimliği'),
+(5, 'Oral Cerrahi'),
+(6, 'Periodontoloji'),
+(7, 'Çocuk Diş Hekimliği'),
+(8, 'Protez'),
+(9, 'Implantoloji'),
+(10, 'Endodonti');
+
 
 -- --------------------------------------------------------
 

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Denta Pros</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+  <!-- Custom CSS -->
+  <style>
+    body {
+      padding-top: 56px;
+      background-color: #f8f9fa;
+    }
+
+    header {
+      background-color: #343a40;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .sidebar {
+      background-color: #f8f9fa;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      height: 100%;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    .card {
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      transform: scale(1.05);
+    }
+
+    footer {
+      background-color: #343a40;
+      color: white;
+      padding: 20px;
+    }
+
+    .scroll-top-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: none;
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      padding: 10px;
+      font-size: 20px;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .scroll-top-btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="animate__animated animate__fadeInDown">
+    <h1>DENTA PROS</h1>
+    <h2>Denta Pros'a Hoş Geldiniz..</h2>
+  </header>
+
+  <!-- Sidebar -->
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="col-md-2 d-none d-md-block sidebar">
+        <h5 class="mb-4">Menü</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="#">Anasayfa</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Hizmetler</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Doktorlar</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">İletişim</a></li>
+        </ul>
+      </nav>
+
+      <!-- Content -->
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+        <div class="content">
+          <h2 class="mb-4 animate__animated animate__fadeInLeft">Hizmetlerimiz</h2>
+
+          <!-- Cardlar -->
+          <div class="row" id="cardRow"></div>
+
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="mt-5">
+    <div class="container">
+      <p>İletişim Bilgileri</p>
+      <p>Telefon: 123-456-7890 | E-posta: info@dentapros.com</p>
+    </div>
+  </footer>
+
+  <button id="scrollTopBtn" class="scroll-top-btn"><i class="fas fa-arrow-up"></i></button>
+
+  <!-- Scriptler (Bootstrap ve jquery) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Animate.css -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+  <script>
+    // Kaydırma animasyonları için WOW.js başlatıyorum
+    new WOW().init();
+
+    // Kartlar için örnek veriler, veritabanı ile daha gerçekçi veriler kullanılarak daha gerçekçi tasarlanabilir.
+    const cardData = [
+      { title: "Diş Beyazlatma", content: "Gülüşünüzü daha parlak hale getirin.", image: "https://via.placeholder.com/150" },
+      { title: "Ortodonti", content: "Düzgün dişlere kavuşmak artık daha kolay.", image: "https://via.placeholder.com/150" },
+      { title: "Dolgu İşlemleri", content: "Çürükleri tedavi edin ve diş sağlığınızı koruyun.", image: "https://via.placeholder.com/150" },
+      { title: "Estetik Diş Hekimliği", content: "Gülüş tasarımı ile doğal ve estetik bir görünüm elde edin.", image: "https://via.placeholder.com/150" },
+      { title: "Periodontoloji", content: "Diş eti sağlığı için uzman desteği alın.", image: "https://via.placeholder.com/150" },
+      { title: "Çocuk Diş Hekimliği", content: "Miniklerinizin sağlıklı gülüşleri için özel hizmet.", image: "https://via.placeholder.com/150" }
+    ];
+
+    // Kart öğeleri oluşturma işlevi
+    function createCard(title, content, image) {
+      return `
+        <div class="col-md-4">
+          <div class="card animate__animated animate__fadeInUp">
+            <img src="${image}" class="card-img-top" alt="Card Resim">
+            <div class="card-body">
+              <h5 class="card-title">${title}</h5>
+              <p class="card-text">${content}</p>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // Kartları dinamik olarak dolduruyorum
+    $(document).ready(function() {
+      const cardRow = $("#cardRow");
+      cardData.forEach(data => {
+        cardRow.append(createCard(data.title, data.content, data.image));
+      });
+    });
+
+    // Yukarıya Kaydırma Butonu İşlevselliği
+    $(document).ready(function() {
+      const scrollTopBtn = $("#scrollTopBtn");
+
+      $(window).scroll(function() {
+        if ($(this).scrollTop() > 100) {
+          scrollTopBtn.show();
+        } else {
+          scrollTopBtn.hide();
+        }
+      });
+
+      scrollTopBtn.click(function() {
+        $("html, body").animate({ scrollTop: 0 }, 800);
+        return false;
+      });
+    });
+  </script>
+</body>
+</html>

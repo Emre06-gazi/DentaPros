@@ -26,7 +26,7 @@
           <th>Telefon</th>
           <th>TC</th>
           <th>E-Posta</th>
-          <th>Doğum Tarihi</th>
+          <th>DOM</th>
           <th>Kayıt Tarihi</th>
           <th>Birim Adı</th>
         </tr>
