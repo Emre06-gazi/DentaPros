@@ -1,8 +1,5 @@
 <?php
-// Kullanıcı durumunu devre dışı bırakma işlemleri burada gerçekleştirilir
-// Bu örnek dosya sadece simülasyon amaçlıdır, gerçek bir durumu devre dışı bırakma işlemi yapılmalıdır.
-
-// Kullanıcı durumu devre dışı bırakıldığını simüle ediyoruz
+// Burada örnek bir test yapıyoruz, ger.ek bir işlem için veritabanında kllanıcı tablosunda isActive değeri gibi sütunlar kullanılarak UPDATE işlemi ile yapılabilir.
 $response = array("success" => true);
 
 // JSON formatında cevap gönderiyoruz
